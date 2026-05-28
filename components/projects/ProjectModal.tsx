@@ -43,7 +43,7 @@ function ProjectModal({ project, onClose }: Props) {
           src={project.img}
           alt={project.title}
           className="w-full rounded-t-2xl object-cover"
-          style={{ maxHeight: "340px", objectFit: "cover", objectPosition: "top" }}
+          style={{ maxHeight: "340px", objectFit: "cover", objectPosition: "center" }}
         />
 
         <div className="p-7 space-y-7">
