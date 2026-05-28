@@ -52,6 +52,7 @@ export type Project = {
   img: string;
   link?: string;
   github?: string;
+  githubFrontend?: string;
   tags: string[];
   // Detail fields for modal
   period?: string;
