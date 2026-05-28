@@ -45,12 +45,16 @@ function Page({ currentPage, meta: { title, desc }, children }: PageProps) {
         <meta property="og:description" content={desc} />
       </Head>
       <main className="p-5 w-full flex-1 text-center">
-        <div className="hidden sm:block z-100">
-          <Navbar currentPage={currentPage} />
-        </div>
-        <div className="-m-5 block sm:hidden z-100">
-          <MobileNavbar />
-        </div>
+        {currentPage !== "Home" && (
+          <>
+            <div className="hidden sm:block z-100">
+              <Navbar currentPage={currentPage} />
+            </div>
+            <div className="-m-5 block sm:hidden z-100">
+              <MobileNavbar />
+            </div>
+          </>
+        )}
         {children}
       </main>
       <Footer />
