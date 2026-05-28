@@ -761,7 +761,7 @@ Django REST Framework를 처음 실무 수준으로 다루면서, Serializer의 
     id: 3,
     title: "닥터앤서 2.0 — 부작용 예측 AI",
     desc: "만성 B형간염 장기 약물치료 환자의 EMR 시계열 데이터에 GRU-D 모델을 적용해 크레아티닌 청소율 저하·저인산혈증 부작용을 예측한 의료 AI 연구.",
-    img: "/static/projects/project4.png",
+    img: "/static/projects/dr-answer.png",
     tags: [
       "Python",
       "MySQL",
