@@ -63,5 +63,6 @@ export type Project = {
   features?: { title: string; desc: string }[];
   challenges?: { title: string; desc: string }[];
   learning?: string;
+  artifacts?: { title: string; img?: string; desc?: string; url?: string }[];
   architecture?: Architecture;
 };
