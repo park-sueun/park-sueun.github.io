@@ -16,7 +16,9 @@ function ProjectCard({ project }: { project: Project }) {
         onClick={() => setOpen(true)}
       >
         <div className="w-full relative rounded-xl border-fun-gray border p-2 transition hover:-translate-y-2 hover:opacity-75 hover:border-fun-pink will-change-projectCard">
-          <img className="w-full rounded-md" src={project.img} alt={project.title} />
+          <div className="w-full aspect-video overflow-hidden rounded-md">
+            <img className="w-full h-full object-cover object-top" src={project.img} alt={project.title} />
+          </div>
         </div>
         <div className="w-full mt-5">
           <div className="flex projects-center justify-between">
