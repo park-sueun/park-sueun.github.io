@@ -70,7 +70,7 @@ function Page({ currentPage, meta: { title, desc }, children }: PageProps) {
         )}
         {children}
       </main>
-      {/* <Footer /> */}
+      <Footer />
     </div>
   );
 }

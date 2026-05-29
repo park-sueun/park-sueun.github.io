@@ -58,10 +58,10 @@ function About() {
         {/* Stats */}
         <div className="grid grid-cols-2 gap-5">
           {[
-            { number: "3+",  label: "Years of Experience" },
-            { number: "10+", label: "Projects Shipped" },
-            { number: "5+",  label: "Tech Stacks" },
-            { number: "∞",   label: "Cups of Coffee" },
+            { number: "3+",    label: "Years of Experience" },
+            { number: "5.76M", label: "Daily Data Processed" },
+            { number: "30x",   label: "API Response Improved" },
+            { number: "10+",   label: "Tech Stacks" },
           ].map(({ number, label }) => (
             <div
               key={label}
