@@ -2,6 +2,7 @@ import Footer from "../global/Footer";
 import Head from "next/head";
 import MobileNavbar from "../global/MobileNavbar";
 import Navbar from "../global/Navbar";
+import Link from "next/link";
 import React, { ReactChildren } from "react";
 
 function Page({ currentPage, meta: { title, desc }, children }: PageProps) {
@@ -45,7 +46,19 @@ function Page({ currentPage, meta: { title, desc }, children }: PageProps) {
         <meta property="og:description" content={desc} />
       </Head>
       <main className="p-5 w-full flex-1 text-center">
-        {currentPage !== "Home" && (
+        {currentPage === "Projects" && (
+          <nav className="flex justify-start mb-6">
+            <Link href="/">
+              <span className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-fun-pink-dark text-fun-gray hover:text-white hover:border-fun-gray transition-colors text-sm font-medium cursor-pointer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <line x1="19" y1="12" x2="5" y2="12"/><polyline points="12 19 5 12 12 5"/>
+                </svg>
+                Home
+              </span>
+            </Link>
+          </nav>
+        )}
+        {currentPage !== "Home" && currentPage !== "Projects" && (
           <>
             <div className="hidden sm:block z-100">
               <Navbar currentPage={currentPage} />
@@ -57,7 +70,7 @@ function Page({ currentPage, meta: { title, desc }, children }: PageProps) {
         )}
         {children}
       </main>
-      <Footer />
+      {/* <Footer /> */}
     </div>
   );
 }
