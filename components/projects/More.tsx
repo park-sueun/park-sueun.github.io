@@ -2,9 +2,11 @@ import React from 'react'
 
 function More() {
     return (
-      <p className="py-20 text-sm italic text-fun-gray">
-        Hey, hey, hey... I've got even more on <a className="text-fun-pink underline" href="https://github.com/braydentw" target="_blank">my GitHub</a>!
-      </p>
+      <div className="py-20 flex justify-center">
+        <a href="https://github.com/park-sueun" target="_blank" rel="noreferrer">
+          <img src="/static/icons/github-badge.png" alt="GitHub" className="h-12 hover:opacity-80 transition-opacity" />
+        </a>
+      </div>
     );
 }
 
