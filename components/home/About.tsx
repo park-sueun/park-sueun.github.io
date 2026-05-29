@@ -11,26 +11,24 @@ function About() {
         {/* Bio */}
         <div className="space-y-5 text-fun-gray-light text-lg leading-relaxed">
           <p>
-            Hi! I'm Su Eun, a developer based in Korea who loves building
-            beautiful things on the web. I care deeply about clean code,
-            thoughtful UX, and products that make a real difference.
+          단순히 기능이 동작하는 것보다, 왜 이런 구조로 동작해야 하는지를 먼저 고민합니다. 문제가 발생했을 때 임시 대응보다 원인을 분석하고 구조적으로 해결하는 방식을 선호하며, 유지보수성과 확장성을 함께 고려하려고 노력합니다.
           </p>
           <p>
-            When I'm not coding, I'm exploring new technologies, contributing
-            to open source, or sharpening my design eye in Figma. I believe
-            the best software lives at the intersection of technical excellence
-            and great design.
+            기술은 목적이 아니라 문제를 해결하기 위한 도구라고 생각합니다. 특정 기술 스택에 얽매이기보다 상황에 적합한 방법을 찾고, 필요한 기술을 빠르게 학습하며 적용하는 과정을 즐깁니다.
+            </p>
+          <p>
+          또한 좋은 개발은 개인의 구현에서 끝나지 않는다고 생각합니다. 기술적인 판단과 구현 의도를 팀과 공유하고, 함께 이해할 수 있는 구조를 만드는 과정 역시 중요한 개발 역량이라고 믿습니다.
           </p>
           <p>
-            I'm always open to new opportunities and interesting
-            collaborations — feel free to reach out!
+          아직 배우고 성장해야 할 부분은 많지만, 그 과정을 즐길 줄 아는 개발자입니다. 반갑습니다! 🙌
           </p>
 
           {/* Document download buttons */}
           <div className="flex flex-wrap gap-3 pt-4">
             <a
-              href="/assets/resume.pdf"
-              download
+              href="/resume.html"
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center gap-2 px-6 py-3 border-2 border-fun-pink text-fun-pink rounded-full font-bold text-sm hover:bg-fun-pink hover:text-white transition-colors"
             >
               <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
