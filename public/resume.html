@@ -68,6 +68,20 @@
     color: var(--ink);
   }
 
+  .title-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 12px;
+    padding: 5px 12px;
+    background: var(--accent);
+    color: white;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.05em;
+    border-radius: 2px;
+  }
+
   .header-right {
     text-align: right;
     flex-shrink: 0;
@@ -95,6 +109,52 @@
     text-decoration: none;
   }
 
+  .c-dot {
+    width: 5px;
+    height: 5px;
+    background: var(--accent);
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* ── STATS BAR ── */
+  .stats-bar {
+    background: var(--accent);
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .stat {
+    padding: 14px 0;
+    text-align: center;
+    border-right: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .stat:last-child { border-right: none; }
+
+  .stat-num {
+    font-size: 22px;
+    font-weight: 700;
+    color: white;
+    line-height: 1;
+    letter-spacing: -0.5px;
+  }
+
+  .stat-num span {
+    font-size: 13px;
+    font-weight: 500;
+    opacity: 0.85;
+  }
+
+  .stat-label {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.65);
+    margin-top: 4px;
+  }
+
   /* ── BODY ── */
   .body {
     padding: 40px 48px;
@@ -120,6 +180,9 @@
   }
 
   /* ── SECTION ── */
+  .section {
+  }
+
   .section-title {
     font-family: var(--mono);
     font-size: 10px;
@@ -132,8 +195,17 @@
     gap: 10px;
   }
 
-  .section-title::before { content: '//'; opacity: 0.5; }
-  .section-title::after { content: ''; flex: 1; height: 1px; background: var(--line); }
+  .section-title::before {
+    content: '//';
+    opacity: 0.5;
+  }
+
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--line);
+  }
 
   /* ── SKILLS ── */
   .skills-grid {
@@ -173,6 +245,10 @@
   }
 
   /* ── WORK ── */
+  .work-block {
+    background: var(--bg);
+  }
+
   .company-header {
     display: flex;
     align-items: baseline;
@@ -193,17 +269,20 @@
     color: var(--ink-3);
   }
 
+  .company-role {
+    font-size: 12px;
+    color: var(--ink-3);
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
   .company-role-header {
     display: flex;
     align-items: baseline;
     justify-content: space-between;
     margin-bottom: 4px;
-  }
-
-  .company-role {
-    font-size: 12px;
-    color: var(--ink-3);
-    margin-bottom: 20px;
   }
 
   .tenure-badge {
@@ -222,7 +301,13 @@
     border-left: 2px solid var(--line);
   }
 
-  .project-block:last-child { margin-bottom: 0; }
+  .project-block:hover {
+    border-left-color: var(--accent);
+  }
+
+  .project-block:last-child {
+    margin-bottom: 0;
+  }
 
   .project-name {
     font-size: 13.5px;
@@ -265,7 +350,10 @@
     top: 4px;
   }
 
-  .bullets strong { color: var(--ink); font-weight: 600; }
+  .bullets strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
 
   .sub-bullets {
     list-style: none;
@@ -322,6 +410,7 @@
     border-radius: 4px;
     padding: 16px 18px;
     background: var(--bg);
+    transition: border-color 0.2s, box-shadow 0.2s;
     position: relative;
     overflow: hidden;
   }
@@ -331,6 +420,11 @@
     position: absolute;
     top: 0; left: 0; right: 0;
     height: 2px;
+    background: var(--line);
+    transition: background 0.2s;
+  }
+
+  .proj-card:hover::before {
     background: var(--accent);
   }
 
@@ -394,10 +488,31 @@
     border-bottom: 1px solid var(--accent-light);
   }
 
-  /* ── EDU ── */
-  .edu-school { font-size: 14px; font-weight: 700; color: var(--ink); }
-  .edu-major { font-size: 12px; color: var(--ink-2); margin-top: 2px; }
-  .edu-period { font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); margin-top: 3px; }
+  /* ── EDU & PRES ── */
+  .bottom-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 32px;
+  }
+
+  .edu-school {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+
+  .edu-major {
+    font-size: 12px;
+    color: var(--ink-2);
+    margin-top: 2px;
+  }
+
+  .edu-period {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--ink-3);
+    margin-top: 3px;
+  }
 
   .edu-items {
     list-style: none;
@@ -423,18 +538,49 @@
     line-height: 1.2;
   }
 
-  .pres-title { font-size: 13.5px; font-weight: 600; color: var(--ink); margin-bottom: 2px; }
-  .pres-meta { font-family: var(--mono); font-size: 10.5px; color: var(--ink-3); margin-bottom: 8px; }
+  .award {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    font-family: var(--mono);
+    font-size: 10px;
+    padding: 3px 8px;
+    background: var(--accent-light);
+    color: var(--accent);
+    border: 1px solid #C5CAFC;
+    border-radius: 2px;
+    margin-top: 8px;
+  }
 
+  .pres-title {
+    font-size: 13.5px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+
+  .pres-meta {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    color: var(--ink-3);
+    margin-bottom: 8px;
+  }
+
+  /* ── PRINT ── */
   @media print {
     body { background: white; }
-    .page { margin: 0; box-shadow: none; width: 100%; }
+    .page {
+      margin: 0;
+      box-shadow: none;
+      width: 100%;
+    }
   }
 </style>
 </head>
 <body>
 <div class="page">
 
+  <!-- HEADER -->
   <header class="header">
     <div class="header-left">
       <div class="name-label">Backend Developer</div>
@@ -442,11 +588,11 @@
     </div>
     <div class="header-right">
       <ul class="contact-list">
-        <li>✉️ parksueun39@gmail.com</li>
+        <li>✉️ sue.park2k@gmail.com</li>
         <li>📞 010-7687-3223</li>
         <li>
-          <svg height="14" width="14" viewBox="0 0 16 16" fill="var(--ink-2)" style="vertical-align:middle;margin-right:4px;">
-            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
+          <svg height="16" width="16" viewBox="0 0 16 16" fill="var(--ink-2)" style="vertical-align:middle; margin-right:4px;">
+            <path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/>
           </svg>
           <a href="https://github.com/park-sueun">github.com/park-sueun</a>
         </li>
@@ -456,11 +602,16 @@
 
   <div class="body">
 
+    <!-- INTRO -->
     <div class="intro">
       복잡한 시스템 문제를 구조적으로 해결하는 것을 강점으로 가진 <strong>3년차 백엔드 개발자</strong>입니다.<br>
-      에너지 도메인에서 <strong>일 576만 건 규모의 전력 데이터를 처리하는 실시간 파이프라인을 구축</strong>했으며, 병목 분석과 데이터 구조 개선을 통해 통계 <strong>API 응답 시간을 30초에서 1초 미만으로 단축</strong>했습니다.
+      에너지 도메인에서 <strong>일 576만 건 규모의 전력 데이터를 처리하는 실시간 파이프라인을 구축</strong>했으며, 병목 분석과 데이터 구조 개선을 통해 통계 <strong>API 응답 시간을 30초에서 1초 미만으로 단축</strong>했습니다. <br>
+      임시방편보다 근본 원인을 해결하는 방식으로 접근하며, 성능·운영 안정성·확장성을 함께 고려해 시스템을 설계합니다.
+      Python/Django 기반의 실무 경험을 바탕으로 Java/Spring Boot 환경까지 역량을 확장하고 있으며, 
+      AI 도구를 개발 워크플로우에 통합해 설계·개발·운영 전반의 생산성을 높이는 방식도 지속적으로 적용하고 있습니다.
     </div>
 
+    <!-- SKILLS -->
     <section class="section">
       <div class="section-title">Skills</div>
       <div class="skills-grid">
@@ -473,7 +624,7 @@
           <span class="skill-tag">Spring Boot</span>
         </div>
 
-        <div class="skill-label">Data &amp; Messaging</div>
+        <div class="skill-label">Data & Messaging</div>
         <div class="skill-val">
           <span class="skill-tag hi">Kafka</span>
           <span class="skill-tag hi">Celery</span>
@@ -517,6 +668,7 @@
       </div>
     </section>
 
+    <!-- WORK EXPERIENCE -->
     <section class="section">
       <div class="section-title">Work Experience</div>
 
@@ -526,7 +678,7 @@
           <div class="company-period">2022.06 ~ 2024.11</div>
         </div>
         <div class="company-role-header">
-          <div class="company-role">서비스개발부문 · 백엔드 팀</div>
+          <div class="company-role"> 서비스개발부문 · 백엔드 팀</div>
           <div><span class="tenure-badge">2년 5개월</span></div>
         </div>
 
@@ -535,32 +687,42 @@
             전력수요관리시스템 개발
             <span class="project-period">2023.09 ~ 2024.11</span>
           </div>
+
           <ul class="bullets">
             <li>
               검침기 약 <strong>50개 → 2만 개</strong> 증가로 기존 배치 처리 구조 한계 발생
-              → <strong>Kafka + Faust 기반 실시간 스트리밍 파이프라인</strong>으로 전환
+              → <strong>Kafka + Faust 기반 실시간 스트리밍 파이프라인</strong>으로 전환하여
+              <strong>일 576만 건</strong> 규모 데이터 처리 체계 구축
+
               <ul class="sub-bullets">
                 <li>Python 스택 유지와 빠른 도입을 고려해 Faust 선택</li>
                 <li>이후 데이터 플랫폼팀의 Flink 기반 구조 전환 시 초기 설계 기반으로 활용</li>
               </ul>
             </li>
+
             <li>
               DR 발령 이벤트 직전까지 기준 데이터(CBL) 계산이 완료되지 않아 실시간 대응 지연 문제 발생
-              → 지연 수신 데이터 특성을 고려해 <strong>Celery 기반 비동기 사전 계산 구조</strong> 설계
+              → 지연 수신 데이터 특성을 고려해
+              <strong>Celery 기반 비동기 사전 계산 구조</strong> 설계
+
               <ul class="sub-bullets">
                 <li>발령 시간 전후 6시간 범위 데이터를 사전 계산하도록 구조 개선</li>
                 <li>이벤트 발생 시 즉시 조회 가능한 구조로 전환하여 실시간 대응 안정성 확보</li>
               </ul>
             </li>
+
             <li>
               운영팀 수동 전화 알림 프로세스 한계
-              → Solapi 기반 <strong>고객사 SMS/카카오톡 자동 알림 시스템</strong> 구축
+              → Solapi 기반 <strong>고객사 문자 발송 자동화 시스템</strong> 설계 주도
+
+              <ul class="sub-bullets">
+                <li>이벤트 기반 메시지 송수신 웹훅 포워딩 구조 구현</li>
+                <li>이벤트 발생 후 <strong>10초 내</strong> 전체 고객사 발송 체계 구축</li>
+              </ul>
             </li>
           </ul>
           <div class="tags">
-            <span class="tag">Kafka</span><span class="tag">Faust</span><span class="tag">Celery</span>
-            <span class="tag">Confluent</span><span class="tag">ECS</span><span class="tag">ECR</span>
-            <span class="tag">Lambda</span><span class="tag">Sentry</span>
+            <span class="tag">Python</span><span class="tag">Django</span><span class="tag">Kafka</span><span class="tag">Faust</span><span class="tag">Celery</span><span class="tag">Confluent</span><span class="tag">ECS</span><span class="tag">ECR</span><span class="tag">Lambda</span><span class="tag">Sentry</span>
           </div>
         </div>
 
@@ -572,43 +734,71 @@
           <ul class="bullets">
             <li>
               발전량·정산 통계 데이터를 JSON 기반으로 저장하고 매 요청 시 재계산하던 구조로 인해 통계 API 응답 시간 <strong>30초 이상</strong> 발생
-              → <strong>DB 스키마 전면 재설계</strong>, ORM 집계 기반 구조 전환, N+1 제거 및 인덱스 최적화를 통해 <strong>1초 미만</strong>으로 개선
+              → <strong>DB 스키마 전면 재설계</strong>, ORM 집계 기반 구조 전환, N+1 제거 및 인덱스 최적화를 통해
+              <strong>1초 미만</strong>으로 개선
+
+              <ul class="sub-bullets">
+                <li>기존 구조 유지 의견에 대해 병목 원인과 개선 방향을 직접 설명·설득 후 적용</li>
+                <li>KPX 공식 데이터와 비교 검증하여 정합성 확보</li>
+                <li>기존 사용자 영향 최소화를 위해 v1/v2 API 분리 배포</li>
+              </ul>
             </li>
+
             <li>
               반복적으로 발생하던 정산 소수점 오차 문제
               → <strong>Float → Decimal 타입 전환</strong> 직접 제안 및 반영하여 정산 정확도 개선
+
               <ul class="sub-bullets">
                 <li>KPX 정산 문서의 소수점 처리 기준 검토 후 시스템에 반영</li>
                 <li>적용 이후 소수점 단위 정산 오차 문제를 안정적으로 해소</li>
               </ul>
             </li>
+
             <li>
-              풍력 발전소별 예측 성능 차이를 반영하기 위한 <strong>풍력 예측 데이터 처리 파이프라인</strong> 구축
+              풍력 발전소별 예측 성능 차이를 반영하기 위한
+              <strong>풍력 예측 데이터 처리 파이프라인</strong> 구축
+
               <ul class="sub-bullets">
                 <li>외부 기상업체 모델과 사내 예측 모델을 발전소별로 분기 적용</li>
                 <li>실서비스 영향 최소화를 위해 중간 Lambda 계층에서 별도 운영</li>
                 <li>예측 결과 및 제출 데이터는 S3 파일 기반으로 관리</li>
               </ul>
             </li>
-          </ul>
+
+            <li>
+              태양광 중심 단일 자원 구조로 인해 풍력 자원 확장 불가능한 문제 발생
+              → 자원 유형별 분리 구조를 공통 자원 모델 기반으로 재설계하여
+              <strong>태양광·풍력 혼합자원 통합 관리 구조</strong> 구축
+
+              <ul class="sub-bullets">
+                <li>발전원 종류와 관계없이 동일한 운영·정산 프로세스를 처리할 수 있도록 구조 통합</li>
+                <li>향후 신규 발전원 추가를 고려한 확장 가능한 데이터 모델로 개선</li>
+              </ul>
+            </li>
+
+          </ul> 
           <div class="tags">
-            <span class="tag">Python</span><span class="tag">Django</span><span class="tag">PostgreSQL</span>
-            <span class="tag">Airflow</span><span class="tag">EC2</span><span class="tag">Lambda</span>
-            <span class="tag">S3</span><span class="tag">ElastiCache</span><span class="tag">API Gateway</span><span class="tag">Route 53</span>
+            <span class="tag">Python</span><span class="tag">Django</span><span class="tag">PostgreSQL</span><span class="tag">Airflow</span><span class="tag">EC2</span><span class="tag">Lambda</span><span class="tag">S3</span><span class="tag">ElastiCache</span><span class="tag">API Gateway</span><span class="tag">Route 53</span>
           </div>
         </div>
 
         <div class="project-block">
-          <div class="project-name">사내 업무 자동화</div>
+          <div class="project-name">
+            사내 업무 자동화
+          </div>
+
           <ul class="bullets">
             <li>
-              세금계산서 발행·메일 전송 및 기준부하량(CBL) 산정·고객사 알림 등 반복 운영 업무 자동화 시스템 구축
+              세금계산서 발행 · 메일 전송 및 기준부하량(CBL) 산정 · 고객사 알림 등
+              반복 운영 업무 자동화 시스템 구축
+
               <ul class="sub-bullets">
                 <li><strong>Google Apps Script 및 서버리스 기반 자동화 구조</strong> 설계</li>
-                <li>수시간 단위로 소요되던 운영 업무를 <strong>분 단위로 단축</strong></li>
+                <li>수시간 단위로 소요되던 운영 업무를 <strong>수초~수분 단위</strong>로 단축</li>
               </ul>
             </li>
           </ul>
+
           <div class="tags">
             <span class="tag">Google Apps Script</span>
             <span class="tag">Lambda</span>
@@ -620,6 +810,7 @@
       </div>
     </section>
 
+    <!-- PROJECTS -->
     <section class="section">
       <div class="section-title">Projects</div>
       <div class="proj-grid">
@@ -630,12 +821,19 @@
           <div class="card-desc">공고 링크 기반 기업 분석·면접 질문 생성·말버릇 분석을 제공하는 AI 면접 스피치 코칭 플랫폼</div>
           <ul class="card-points">
             <li>Playwright + Selenium으로 사람인·원티드·잡코리아 SPA 동적 크롤링 구현, 분석 완료 시 SSE로 클라이언트에 실시간 푸시</li>
-            <li>Claude / Gemini 멀티 프로바이더 추상화 — Rate Limit 감지 시 자동 재시도 → Fallback 전환</li>
+            <li>Claude / Gemini 멀티 프로바이더 추상화 — rate limit·timeout 자동 재시도, 우선순위 기반 폴백, 프롬프트 파일 외부화로 버전 관리</li>
+            <li>GitHub Actions → ECR 이미지 빌드 → EC2 자동 배포</li>
           </ul>
           <div class="tags">
-            <span class="tag">Java 21</span><span class="tag">Spring Boot 4.0.5</span><span class="tag">MySQL</span>
-            <span class="tag">Redis</span><span class="tag">Playwright</span><span class="tag">WebFlux</span>
-            <span class="tag">SSE</span><span class="tag">AWS RDS</span><span class="tag">Docker</span>
+            <span class="tag">Java 21</span>
+            <span class="tag">Spring Boot 4.0.5</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Redis</span>
+            <span class="tag">Playwright</span>
+            <span class="tag">WebFlux</span>
+            <span class="tag">SSE</span>
+            <span class="tag">AWS RDS</span>
+            <span class="tag">Docker</span>
           </div>
           <div class="card-links">
             <a href="https://github.com/U-U-G/U-U-G-backend">GitHub</a>
@@ -655,8 +853,13 @@
             <li>Fly.io + Docker 실서비스 배포 (Sydney 리전, HTTPS 강제)</li>
           </ul>
           <div class="tags">
-            <span class="tag">Java 17</span><span class="tag">Spring Boot 4.0.3</span><span class="tag">MySQL</span>
-            <span class="tag">Next.js</span><span class="tag">Fly.io</span><span class="tag">Docker</span>
+            <span class="tag">Java 17</span>
+            <span class="tag">Spring Boot 4.0.3</span>
+            <span class="tag">MySQL</span>
+            <span class="tag">Next.js</span>
+            <span class="tag">Fly.io</span>
+            <span class="tag">Docker</span>
+            <span class="tag">Claude</span>
           </div>
           <div class="card-links">
             <a href="https://github.com/park-sueun/88days-jobs-au-frontend">Frontend</a>
@@ -685,7 +888,7 @@
         <div class="proj-card">
           <div class="card-title">닥터앤서 2.0</div>
           <div class="card-meta">캡스톤 프로젝트 · 학부연구생 · 2021 ~ 2022</div>
-          <div class="card-desc">만성 B형간염 장기 약물치료 부작용 예측 AI 모델 개발 (코아아이티·아주대학교의료원 협력)</div>
+          <div class="card-desc">코아아이티 · 아주대학교의료원 협력 프로젝트. 의료 EMR 데이터 기반 간질환 약물 치료 부작용 예측 AI 모델 개발</div>
           <ul class="card-points">
             <li>시계열 특성 반영한 GRU-D 모델 선택 및 구현</li>
             <li>XAI 도입으로 모델 예측 결과 신뢰성 확보</li>
@@ -695,7 +898,7 @@
             <span class="tag">Python</span><span class="tag">MySQL</span><span class="tag">GRU-D</span><span class="tag">XAI</span>
           </div>
           <div class="card-links">
-            <a href="https://hail.handong.edu/pages/projects#medical-ai">HAIL 연구</a>
+            <a href="https://hail.handong.edu/pages/projects#medical-ai">HAIL 연구 내용</a>
             <a href="https://www.dranswer.kr/market/disease/20/sw/31">Dr.Answer 2.0</a>
           </div>
         </div>
@@ -703,16 +906,20 @@
       </div>
     </section>
 
+    <!-- PRESENTATION -->
     <section class="section">
       <div class="section-title">Presentation</div>
       <div class="pres-title">Postman 200% 활용하기</div>
       <div class="pres-meta">해줌 사내 라이트닝 토크 · 2024.06.14</div>
       <div style="font-size:12.5px;color:var(--ink-2);margin-bottom:8px;">Pre-request Script를 활용하여 개발자의 생산성을 높이는 방법</div>
       <ul class="bullets">
-        <li>토큰 자동 갱신·환경변수 동적 설정 등 고급 기능 활용 확산, API 테스트 생산성 향상</li>
+        <li>토큰 자동 갱신, 환경변수 자동 설정, 테스트 데이터 자동 생성</li>
+        <li>반복 작업을 Script로 전면 자동화하는 방법 공유</li>
+        <li>발표 이후 팀 내 Postman 고급 기능 활용 확산, API 테스트 생산성 향상</li>
       </ul>
     </section>
 
+    <!-- EDUCATION -->
     <section class="section">
       <div class="section-title">Education</div>
       <div class="edu-school">한동대학교</div>
